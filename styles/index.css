@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200 transition-colors duration-300 dark:border-slate-700;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-light-bg font-sans text-slate-900 antialiased dark:bg-dark-bg dark:text-slate-100;
+    background-image:
+      radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 30%),
+      radial-gradient(circle at top right, rgba(16, 185, 129, 0.12), transparent 30%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #6366f1;
+    border-radius: 999px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-white/40 bg-white/90 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700/70 dark:bg-slate-800/90;
+  }
+
+  .button-ripple {
+    @apply relative overflow-hidden;
+  }
+
+  .button-ripple::after {
+    content: "";
+    @apply absolute inset-0 scale-0 rounded-[inherit] bg-white/20 opacity-0 transition-all duration-300;
+  }
+
+  .button-ripple:active::after {
+    @apply scale-100 opacity-100;
+  }
+}
